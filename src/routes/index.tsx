@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import sentivioLogo from "@/assets/sentivio-logo.png.asset.json";
+const SENTIVIO_LOGO = "/sentivio-logo.png";
+const INTELLIGO_LOGO = "/intelligo-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,8 +47,8 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="/" className="flex items-center gap-2 text-lg font-bold text-foreground">
-          <img src={sentivioLogo.url} alt="Logo Sentivio" className="h-6 w-6" loading="lazy" />
-          <span className="font-display">Sentivio</span>
+          <img src={SENTIVIO_LOGO} alt="Logo Sentivio" className="logo-glow h-8 w-8" />
+          <span className="font-display text-xl tracking-tight">Sentivio</span>
           <span className="ml-1 text-xs font-normal text-muted-foreground">by Intelligo ID</span>
         </a>
 
@@ -85,45 +86,177 @@ function Header() {
 }
 
 function HeroSection() {
+  const highlights = [
+    { icon: "bar_chart", title: "Automated Data Analysis" },
+    { icon: "auto_awesome", title: "AI-Driven Insights" },
+    { icon: "layers", title: "Multi-Source Integration" },
+    { icon: "bolt", title: "Faster, Sharper Decisions" },
+  ];
+
   return (
-    <section className="relative overflow-hidden bg-background px-6 pb-24 pt-20 lg:px-8">
-      {/* Ambient glow behind the hero */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-secondary/10 blur-3xl" />
+    <section className="bg-hero-navy relative overflow-hidden px-6 pb-24 pt-16 lg:px-8 lg:pt-20">
+      <div className="dot-grid pointer-events-none absolute -left-40 bottom-0 h-[420px] w-[620px] opacity-60" />
+      <div className="dot-grid pointer-events-none absolute -right-40 bottom-10 h-[420px] w-[620px] opacity-60" />
 
-      <div className="relative mx-auto max-w-7xl text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-muted/40 px-4 py-1.5 font-label text-xs uppercase tracking-widest text-foreground">
-          <span className="material-symbols text-sm text-secondary">auto_awesome</span>
-          AI Powered Data Intelligence
-        </span>
-
-        <h1 className="mx-auto mt-8 max-w-4xl font-display text-display-lg-mobile font-extrabold tracking-tight text-foreground lg:text-display-lg">
-          Turn Millions of Data Points Into{" "}
-          <span className="text-gradient">Strategic Decisions</span>
-        </h1>
-
-        <p className="mx-auto mt-6 max-w-2xl text-body-md text-muted-foreground lg:text-body-lg">
-          Unify your global data streams with Sentivio by Intelligo ID. Our proprietary LLMs
-          analyze, synthesize, and predict market shifts before they happen.
-        </p>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 rounded-lg bg-secondary px-6 py-3 text-sm font-semibold text-secondary-foreground transition-all hover:bg-secondary/90"
-          >
-            Start Free Trial
-          </a>
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-container px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-surface-container-high"
-          >
-            <span className="material-symbols text-accent">play_circle</span>
-            Book Demo
-          </a>
+      <div className="relative mx-auto max-w-7xl">
+        {/* Brand lockup */}
+        <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8">
+          <img src={SENTIVIO_LOGO} alt="Sentivio" className="logo-glow h-24 w-24 sm:h-32 sm:w-32" />
+          <div className="hidden h-28 w-px bg-border sm:block" />
+          <div className="text-center sm:text-left">
+            <div className="font-display text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl">
+              Sentivio
+            </div>
+            <span className="pill-orange mt-3 inline-flex items-center rounded-full px-4 py-1 font-display text-lg font-extrabold italic text-white">
+              AI-Powered
+            </span>
+            <div className="mt-2 font-display text-lg font-semibold text-foreground/90">
+              Data Intelligence Platform
+            </div>
+          </div>
         </div>
+
+        <div className="mt-14 text-center">
+          <h1 className="mx-auto max-w-4xl font-display text-display-lg-mobile font-extrabold tracking-tight text-foreground lg:text-display-lg">
+            Turn Millions of Data Points Into{" "}
+            <span className="text-gradient">Strategic Decisions</span>
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-2xl text-body-md text-muted-foreground lg:text-body-lg">
+            Unify your global data streams with Sentivio by Intelligo ID. Our proprietary LLMs
+            analyze, synthesize, and predict market shifts before they happen.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="#"
+              className="pill-orange inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all hover:brightness-110"
+            >
+              Start Free Trial
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 rounded-lg border border-border bg-surface-container px-6 py-3 text-sm font-semibold text-foreground transition-all hover:bg-surface-container-high"
+            >
+              <span className="material-symbols text-accent">play_circle</span>
+              Book Demo
+            </a>
+          </div>
+        </div>
+
+        {/* Highlights strip */}
+        <div className="mx-auto mt-16 grid max-w-5xl grid-cols-2 gap-y-8 lg:grid-cols-4">
+          {highlights.map((item, i) => (
+            <div
+              key={item.title}
+              className={`flex flex-col items-center gap-3 px-4 text-center ${
+                i > 0 ? "lg:border-l lg:border-border/60" : ""
+              } ${i % 2 === 1 ? "border-l border-border/60 lg:border-l" : ""}`}
+            >
+              <div className="icon-tile flex h-14 w-14 items-center justify-center rounded-xl text-accent">
+                <span className="material-symbols text-[28px]">{item.icon}</span>
+              </div>
+              <div className="text-sm font-medium text-foreground">{item.title}</div>
+            </div>
+          ))}
+        </div>
+
+        <DashboardPreview />
       </div>
     </section>
+  );
+}
+
+function DashboardPreview() {
+  const bars = [28, 40, 46, 58, 66, 84];
+
+  return (
+    <div className="relative mx-auto mt-20 max-w-5xl">
+      <div className="pointer-events-none absolute inset-x-10 -bottom-6 h-24 rounded-full bg-accent/20 blur-3xl" />
+
+      <div className="relative rounded-2xl border border-white/10 bg-surface-container-low p-3 shadow-2xl shadow-black/40">
+        <div className="flex overflow-hidden rounded-xl border border-white/5 bg-background">
+          {/* Sidebar */}
+          <aside className="hidden w-44 shrink-0 flex-col gap-4 border-r border-white/5 bg-surface-container-low p-5 sm:flex">
+            <img src={SENTIVIO_LOGO} alt="" className="logo-glow h-7 w-7" loading="lazy" />
+            <div className="mt-2 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-accent" />
+              <span className="h-1.5 w-20 rounded bg-accent/50" />
+            </div>
+            {[16, 20, 14, 18].map((w, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-muted" />
+                <span className="h-1.5 rounded bg-muted" style={{ width: `${w * 4}px` }} />
+              </div>
+            ))}
+          </aside>
+
+          {/* Main */}
+          <div className="flex-1 p-5">
+            <div className="text-sm font-semibold text-foreground">Data Intelligence</div>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="rounded-lg border border-white/5 bg-surface-container p-4 md:col-span-2">
+                <svg viewBox="0 0 300 110" className="h-32 w-full" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="area" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stopColor="#00c2ff" stopOpacity="0.45" />
+                      <stop offset="100%" stopColor="#00c2ff" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M0 95 C30 90 40 60 70 62 S110 88 135 70 S175 40 200 58 S245 70 265 35 L300 20 L300 110 L0 110 Z"
+                    fill="url(#area)"
+                  />
+                  <path
+                    d="M0 95 C30 90 40 60 70 62 S110 88 135 70 S175 40 200 58 S245 70 265 35 L300 20"
+                    fill="none"
+                    stroke="#00c2ff"
+                    strokeWidth="2.5"
+                  />
+                  <circle cx="300" cy="20" r="4" fill="#7bd0ff" />
+                </svg>
+              </div>
+              <div className="flex items-center justify-center rounded-lg border border-white/5 bg-surface-container p-4">
+                <svg viewBox="0 0 42 42" className="h-24 w-24 -rotate-90">
+                  <circle cx="21" cy="21" r="15.9" fill="none" stroke="#273647" strokeWidth="6" />
+                  <circle
+                    cx="21"
+                    cy="21"
+                    r="15.9"
+                    fill="none"
+                    stroke="#00c2ff"
+                    strokeWidth="6"
+                    strokeDasharray="68 32"
+                  />
+                </svg>
+              </div>
+              <div className="flex h-28 items-end gap-2 rounded-lg border border-white/5 bg-surface-container p-4">
+                {bars.map((h, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 rounded-t bg-gradient-to-t from-sky-700 to-accent"
+                    style={{ height: `${h}%` }}
+                  />
+                ))}
+              </div>
+              <div className="flex flex-col justify-center gap-2.5 rounded-lg border border-white/5 bg-surface-container p-4 md:col-span-2">
+                {[90, 70, 82, 55].map((w, i) => (
+                  <span key={i} className="h-1.5 rounded bg-muted" style={{ width: `${w}%` }} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Floating insight card */}
+      <div className="glass-panel-strong glow-cyan relative mx-auto mt-6 flex max-w-xs items-center gap-3 rounded-xl px-5 py-4 md:absolute md:-right-10 md:bottom-16 md:mt-0">
+        <span className="material-symbols text-3xl text-secondary">auto_awesome</span>
+        <span className="text-sm font-semibold leading-snug text-foreground">
+          Turn raw data into meaningful insights with AI
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -154,7 +287,9 @@ function ExecutiveSummarySection() {
           <div className="glass-panel rounded-xl p-6 lg:col-span-6">
             <div className="flex items-center gap-3">
               <span className="pulse-point h-2.5 w-2.5 rounded-full bg-accent" />
-              <span className="text-sm font-medium text-foreground">Real-time Sentivio analysis</span>
+              <span className="text-sm font-medium text-foreground">
+                Real-time Sentivio analysis
+              </span>
             </div>
           </div>
 
@@ -250,7 +385,7 @@ function IntelligencePipelineSection() {
           <span className="font-label text-xs uppercase tracking-widest text-muted-foreground">
             Intelligence Pipeline
           </span>
-          <h2 className="mt-4 font-display text-headline-xl font-bold text-foreground">
+          <h2 className="mt-4 font-display text-3xl font-bold text-foreground lg:text-headline-xl">
             From raw data to board-ready insights with{" "}
             <span className="text-secondary">Sentivio by Intelligo ID</span>.
           </h2>
@@ -318,7 +453,7 @@ function ModulesSection() {
           <span className="font-label text-xs uppercase tracking-widest text-muted-foreground">
             An AI Analyst For Your Entire Organization
           </span>
-          <h2 className="mt-4 font-display text-headline-xl font-bold text-foreground">
+          <h2 className="mt-4 font-display text-3xl font-bold text-foreground lg:text-headline-xl">
             A modular intelligence ecosystem built by Intelligo ID for{" "}
             <span className="text-gradient">high-performance teams</span>.
           </h2>
@@ -352,7 +487,7 @@ function CtaSection() {
         <div className="relative overflow-hidden rounded-2xl border border-border bg-surface-container p-10 text-center lg:p-16">
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-accent/10" />
           <div className="relative">
-            <h2 className="font-display text-headline-xl font-bold text-foreground">
+            <h2 className="font-display text-3xl font-bold text-foreground lg:text-headline-xl">
               Sentivio by Intelligo ID
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-body-md text-muted-foreground">
@@ -405,7 +540,12 @@ function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <a href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
-              <img src={sentivioLogo.url} alt="Logo Sentivio" className="h-6 w-6" loading="lazy" />
+              <img
+                src={SENTIVIO_LOGO}
+                alt="Logo Sentivio"
+                className="logo-glow h-8 w-8"
+                loading="lazy"
+              />
               <span className="font-display">Sentivio by Intelligo ID</span>
             </a>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
@@ -440,7 +580,12 @@ function Footer() {
           <p className="text-sm text-muted-foreground">
             © 2026 Sentivio by Intelligo ID. All rights reserved.
           </p>
-          <p className="text-sm text-muted-foreground">Powered by Intelligo ID</p>
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
+            <span>Powered by</span>
+            <span className="inline-flex items-center rounded-md bg-white px-2.5 py-1.5">
+              <img src={INTELLIGO_LOGO} alt="Intelligo ID" className="h-9 w-auto" loading="lazy" />
+            </span>
+          </div>
         </div>
       </div>
     </footer>
