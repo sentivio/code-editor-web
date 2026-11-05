@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import sentivioLogo from "@/assets/sentivio-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +46,7 @@ function Header() {
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="/" className="flex items-center gap-2 text-lg font-bold text-foreground">
-          <span className="material-symbols text-secondary">auto_awesome</span>
+          <img src={sentivioLogo.url} alt="Logo Sentivio" className="h-6 w-6" loading="lazy" />
           <span className="font-display">Sentivio</span>
           <span className="ml-1 text-xs font-normal text-muted-foreground">by Intelligo ID</span>
         </a>
@@ -404,7 +405,7 @@ function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <a href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
-              <span className="material-symbols text-secondary">auto_awesome</span>
+              <img src={sentivioLogo.url} alt="Logo Sentivio" className="h-6 w-6" loading="lazy" />
               <span className="font-display">Sentivio by Intelligo ID</span>
             </a>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">
